@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiN Café | Reserva</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="index.html">MiN Café</a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="menu.html">Menú</a>
+      <a href="espacio.html">El espacio</a>
+      <a href="flores.html">Flores y plantas</a>
+      <a class="activo" href="reserva.html">Reserva</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="reserva-principal">
+    <div class="container reserve-grid reserve-grid-profe">
+      <form>
+        <h2>Hacé tu reserva</h2>
+
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" type="text" placeholder="Tu nombre">
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="tu@email.com">
+
+        <div class="form-row">
+          <div>
+            <label for="fecha">Fecha</label>
+            <input id="fecha" type="date">
+          </div>
+          <div>
+            <label for="hora">Horario</label>
+            <select id="hora">
+              <option>Elegí un horario</option>
+              <option>09:00</option>
+              <option>12:00</option>
+              <option>16:00</option>
+              <option>19:00</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="personas">Cantidad de personas</label>
+        <select id="personas">
+          <option>1</option><option>2</option><option>3</option>
+          <option>4</option><option>5</option><option>6</option>
+        </select>
+
+        <label for="mensaje">Mensaje (opcional)</label>
+        <textarea id="mensaje" placeholder="¿Algo que debamos saber?"></textarea>
+
+        <button class="btn" type="button">Reservar ahora</button>
+      </form>
+
+      <div class="reserve-photo reserve-photo-profe">
+        <img src="img/reserva.jpg" alt="Mesa preparada para una reserva en MiN Café">
+      </div>
+    </div>
+
+    <div class="container reserva-bloques-profe">
+      <div class="info-box ubicacion-grande">
+        <h3>Ubicación</h3>
+        <p>Fitz Roy 2430, Palermo, Buenos Aires.</p>
+        <div class="mapa-embed">
+          <iframe
+            src="https://www.google.com/maps?q=Fitz%20Roy%202430%2C%20Palermo%2C%20Buenos%20Aires&output=embed"
+            title="Mapa de MiN Café en Fitz Roy 2430, Palermo"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Fitz+Roy+2430,+Palermo,+Buenos+Aires" target="_blank" rel="noopener">Abrir en Google Maps</a>
+      </div>
+
+      <div class="reserva-columna-derecha">
+        <div class="info-box horarios-box">
+          <h3>Horarios</h3>
+          <p>Lunes a domingo</p>
+          <p>8:00 a 20:00</p>
+        </div>
+
+        <div class="info-box contacto-box">
+          <h3>Contacto</h3>
+          <p><strong>Teléfono:</strong> <a href="tel:1170185910">11 7018-5910</a></p>
+          <p><strong>Email:</strong> <a href="mailto:Mincafeoficial@gmail.com">Mincafeoficial@gmail.com</a></p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/mincafeoficial/" target="_blank" rel="noopener">@mincafeoficial</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-logo">MiN Café</div>
+      <div class="footer-small">Café · comida · buenos momentos</div>
+    </div>
+    <div class="footer-contacto">
+      <a href="tel:+541170185910">11 7018-5910</a>
+      <a href="mailto:Mincafeoficial@gmail.com">Mincafeoficial@gmail.com</a>
+      <a href="https://www.instagram.com/mincafeoficial/" target="_blank" rel="noopener">@mincafeoficial</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

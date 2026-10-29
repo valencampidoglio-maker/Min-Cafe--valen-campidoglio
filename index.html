@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiN Café | Inicio</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="index.html">MiN Café</a>
+    <nav>
+      <a class="activo" href="index.html">Inicio</a>
+      <a href="menu.html">Menú</a>
+      <a href="espacio.html">El espacio</a>
+      <a href="flores.html">Flores y plantas</a>
+      <a href="reserva.html">Reserva</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero-video">
+    <video id="video-inicio" autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <source src="video/inicio.mp4" type="video/mp4">
+      Tu navegador no puede reproducir este video.
+    </video>
+    <button class="video-play-fallback" id="video-play-fallback" type="button" aria-label="Reproducir video">▶ Ver video</button>
+    <div class="hero-overlay">
+      <div class="container hero-text">
+        <span class="eyebrow">Buen café · mejores momentos</span>
+        <h1>Café para quedarte</h1>
+        <p>Un espacio cálido para disfrutar un buen café, comer algo rico y tomarse un momento sin apuro.</p>
+        <a class="btn" href="menu.html">Ver menú</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <span class="eyebrow">Sobre MiN</span>
+        <h2>Más que un café, un lugar para vos.</h2>
+        <p>MiN es una cafetería pensada para disfrutar, encontrarse y bajar un poco el ritmo. La propuesta combina café, comida rica y un ambiente tranquilo, con una identidad cálida y cercana.</p>
+        <a class="btn btn-outline" href="espacio.html">Conocer el espacio</a>
+      </div>
+      <div class="about-image"><img src="img/inicio-espacio.jpg" alt="Interior de MiN Café"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Recorré el sitio</span>
+        <h2>Todo MiN en un mismo lugar</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <img src="img/inicio-menu.jpg" alt="Comida del menú de MiN Café">
+          <div class="card-body"><h3>Nuestro Menú</h3><p>Cafés, desayunos, pastelería y opciones saladas.</p><a href="menu.html">Ver menú →</a></div>
+        </article>
+        <article class="card">
+          <img src="img/inicio-espacio.jpg" alt="Espacio de MiN Café">
+          <div class="card-body"><h3>El espacio</h3><p>Un ambiente cálido y tranquilo para disfrutar sin apuro.</p><a href="espacio.html">Conocer el espacio →</a></div>
+        </article>
+        <article class="card">
+          <img src="img/inicio-reserva.jpg" alt="Mesa reservada en MiN Café">
+          <div class="card-body"><h3>Reservá tu mesa</h3><p>Elegí fecha, horario y cantidad de personas.</p><a href="reserva.html">Reservar ahora →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-logo">MiN Café</div>
+      <div class="footer-small">Café · comida · buenos momentos</div>
+    </div>
+    <div class="footer-contacto">
+      <a href="tel:+541170185910">11 7018-5910</a>
+      <a href="mailto:Mincafeoficial@gmail.com">Mincafeoficial@gmail.com</a>
+      <a href="https://www.instagram.com/mincafeoficial/" target="_blank" rel="noopener">@mincafeoficial</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const video = document.getElementById('video-inicio');
+  const fallback = document.getElementById('video-play-fallback');
+  if (!video) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
+  function intentarReproducir() {
+    const intento = video.play();
+    if (intento && typeof intento.catch === 'function') {
+      intento.then(function () {
+        if (fallback) fallback.classList.remove('visible');
+      }).catch(function () {
+        if (fallback) fallback.classList.add('visible');
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', intentarReproducir);
+  video.addEventListener('canplay', intentarReproducir, { once: true });
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && video.paused) intentarReproducir();
+  });
+
+  if (fallback) {
+    fallback.addEventListener('click', function () {
+      video.muted = true;
+      video.play();
+      fallback.classList.remove('visible');
+    });
+  }
+
+  // En algunos navegadores móviles el primer toque habilita reproducción.
+  document.addEventListener('touchstart', function activarVideo() {
+    if (video.paused) intentarReproducir();
+    document.removeEventListener('touchstart', activarVideo);
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
